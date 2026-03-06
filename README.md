@@ -1,6 +1,3 @@
-### SETUP LAVARAVEL 10 WITH DOCKER
-**XDEBUG IN VS CODE**
-
 Execute commands bellow:
 ```
 docker-compose up -d

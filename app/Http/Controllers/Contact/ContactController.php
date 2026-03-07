@@ -89,6 +89,11 @@ class ContactController extends Controller
     public function show(string $id): JsonResponse
     {
         $contact = $this->findbyIdContactUseCase->execute($id);
+
+        if (!$contact) {
+            return response()->json(['message' => 'Contact not found'], 404);
+        }
+
         return response()->json($contact->toArray());
     }
 

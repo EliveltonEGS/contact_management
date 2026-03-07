@@ -11,7 +11,7 @@ class FindByIdContactUseCase
         private ContactService $contactService
     ) {}
 
-    public function execute(string $id): Contact
+    public function execute(string $id): ?Contact
     {
         return $this->contactService->show($id);
     }

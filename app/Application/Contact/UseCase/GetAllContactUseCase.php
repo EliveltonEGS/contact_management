@@ -2,8 +2,8 @@
 
 namespace Application\Contact\UseCase;
 
+use Domain\Contact\Entities\Contact;
 use Domain\Contact\Services\ContactService;
-use Illuminate\Database\Eloquent\Collection;
 
 class GetAllContactUseCase
 {
@@ -11,7 +11,10 @@ class GetAllContactUseCase
         private ContactService $contactService
     ) {}
 
-    public function execute(): Collection
+    /**
+     * @return Contact[]
+     */
+    public function execute(): array
     {
         return $this->contactService->all();
     }

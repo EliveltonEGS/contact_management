@@ -5,7 +5,6 @@ namespace Infrastructure\Database\Contact\Repositories;
 use App\Models\Contact as EloquentContact;
 use Domain\Contact\Entities\Contact;
 use Domain\Contact\Repositories\ContactRepositoryInterface;
-use Illuminate\Database\Eloquent\Collection;
 
 class EloquentContactRepository implements ContactRepositoryInterface
 {
@@ -36,8 +35,14 @@ class EloquentContactRepository implements ContactRepositoryInterface
         );
     }
 
-    public function all(): Collection
+
+    /**
+     * Method all
+     *
+     * @return Contact[]
+     */
+    public function all(): array
     {
-        return EloquentContact::all();
+        return EloquentContact::all()->toArray();
     }
 }

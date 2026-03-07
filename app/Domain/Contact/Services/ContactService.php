@@ -4,7 +4,6 @@ namespace Domain\Contact\Services;
 
 use Domain\Contact\Entities\Contact;
 use Domain\Contact\Repositories\ContactRepositoryInterface;
-use Illuminate\Database\Eloquent\Collection;
 
 class ContactService
 {
@@ -25,7 +24,12 @@ class ContactService
         return $this->contactRepository->show($id);
     }
 
-    public function all(): Collection
+    /**
+     * Method all
+     *
+     * @return Contact[]
+     */
+    public function all(): array
     {
         return $this->contactRepository->all();
     }

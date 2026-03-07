@@ -3,11 +3,15 @@
 namespace Domain\Contact\Repositories;
 
 use Domain\Contact\Entities\Contact;
-use Illuminate\Database\Eloquent\Collection;
 
 interface ContactRepositoryInterface
 {
     public function store(Contact $contact): void;
     public function show(string $id): ?Contact;
-    public function all(): Collection;
+    /**
+     * Method all
+     *
+     * @return Contact[]
+     */
+    public function all(): array;
 }

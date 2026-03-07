@@ -23,7 +23,7 @@ class EloquentContactRepository implements ContactRepositoryInterface
 
     public function show(string $id): ?Contact
     {
-        $eloquentContact = EloquentContact::findOrFail($id);
+        $eloquentContact = EloquentContact::find($id);
         if (!$eloquentContact) {
             return null;
         }

@@ -16,7 +16,7 @@ class ContactService
 
     public function store(Contact $contact): Contact
     {
-        $this->contactRepository->save($contact);
+        $this->contactRepository->store($contact);
         return $contact;
     }
 

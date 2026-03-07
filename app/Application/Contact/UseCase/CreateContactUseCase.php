@@ -5,6 +5,7 @@ namespace Application\Contact\UseCase;
 use Application\Contact\DTO\ContactCreateDTO;
 use Domain\Contact\Entities\Contact;
 use Domain\Contact\Services\ContactService;
+use Illuminate\Support\Str;
 
 class CreateContactUseCase
 {
@@ -17,7 +18,7 @@ class CreateContactUseCase
     public function execute(ContactCreateDTO $dto): Contact
     {
         $contact = new Contact(
-            uniqid(),
+            Str::uuid()->toString(),
             $dto->name,
             $dto->email,
             $dto->phone

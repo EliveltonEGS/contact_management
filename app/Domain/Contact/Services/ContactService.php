@@ -19,6 +19,12 @@ class ContactService
         return $contact;
     }
 
+    public function upate(Contact $contact): ?Contact
+    {
+        $this->contactRepository->update($contact);
+        return $contact;
+    }
+
     public function show(string $id): ?Contact
     {
         return $this->contactRepository->show($id);
@@ -32,5 +38,10 @@ class ContactService
     public function all(): array
     {
         return $this->contactRepository->all();
+    }
+
+    public function destroy(string $id): bool
+    {
+        return $this->contactRepository->destroy($id);
     }
 }

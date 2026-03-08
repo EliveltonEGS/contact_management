@@ -32,7 +32,7 @@
                                             "type": "string",
                                             "example": "joao@email.com"
                                         },
-                                        "contact": {
+                                        "phone": {
                                             "type": "string",
                                             "example": "11999999999"
                                         }
@@ -125,7 +125,7 @@
                                             "type": "string",
                                             "example": "joao@email.com"
                                         },
-                                        "contact": {
+                                        "phone": {
                                             "type": "string",
                                             "example": "11999999999"
                                         }
@@ -137,6 +137,47 @@
                     },
                     "404": {
                         "description": "Contato não encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Delete contact"
+                ],
+                "summary": "Delete by ID",
+                "description": "Delete contact",
+                "operationId": "16d9096919116d2c92b50b63b60f702c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID contact",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "69ab85ce68ca5"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contact not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Contact deleted"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Contact not found"
                     }
                 }
             }
@@ -154,6 +195,10 @@
         {
             "name": "Contact all",
             "description": "Contact all"
+        },
+        {
+            "name": "Delete contact",
+            "description": "Delete contact"
         }
     ]
 }

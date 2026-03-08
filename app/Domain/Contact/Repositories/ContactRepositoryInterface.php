@@ -7,6 +7,7 @@ use Domain\Contact\Entities\Contact;
 interface ContactRepositoryInterface
 {
     public function store(Contact $contact): void;
+    public function update(Contact $contact): ?Contact;
     public function show(string $id): ?Contact;
     /**
      * Method all
@@ -14,4 +15,5 @@ interface ContactRepositoryInterface
      * @return Contact[]
      */
     public function all(): array;
+    public function destroy(string $id): bool;
 }

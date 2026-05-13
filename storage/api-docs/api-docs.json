@@ -46,7 +46,7 @@
             },
             "post": {
                 "tags": [
-                    "Contacts Create"
+                    "Contact Create"
                 ],
                 "summary": "New Contact",
                 "operationId": "4de38e2d3da335d903194f1f1aa2c0f3",
@@ -140,18 +140,18 @@
                     }
                 }
             },
-            "delete": {
+            "put": {
                 "tags": [
-                    "Delete contact"
+                    "Update contact"
                 ],
-                "summary": "Delete by ID",
-                "description": "Delete contact",
-                "operationId": "16d9096919116d2c92b50b63b60f702c",
+                "summary": "Update by ID",
+                "description": "Update contact",
+                "operationId": "923bfb1d0c9bb2f3b3d6d4f4d67f0949",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "ID contact",
+                        "description": "Update contact",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -161,6 +161,55 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "Update contact",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "example": "João Silva"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "joao@email.com"
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": "11999999999"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Contato não encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Contact delete"
+                ],
+                "summary": "Delete by id",
+                "description": "Contact delete",
+                "operationId": "16d9096919116d2c92b50b63b60f702c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Destroy contact",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "69ab85ce68ca5"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
                         "description": "Contact not found",
                         "content": {
                             "application/json": {
@@ -176,8 +225,8 @@
                             }
                         }
                     },
-                    "404": {
-                        "description": "Contact not found"
+                    "204": {
+                        "description": "No Content"
                     }
                 }
             }
@@ -185,8 +234,8 @@
     },
     "tags": [
         {
-            "name": "Contacts Create",
-            "description": "Contacts Create"
+            "name": "Contact Create",
+            "description": "Contact Create"
         },
         {
             "name": "Contact find",
@@ -197,8 +246,12 @@
             "description": "Contact all"
         },
         {
-            "name": "Delete contact",
-            "description": "Delete contact"
+            "name": "Contact delete",
+            "description": "Contact delete"
+        },
+        {
+            "name": "Update contact",
+            "description": "Update contact"
         }
     ]
 }

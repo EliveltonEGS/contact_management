@@ -36,7 +36,7 @@ class ContactController extends Controller
      * @OA\Post(
      *     path="/api/contacts",
      *     summary="New Contact",
-     *     tags={"Contacts Create"},
+     *     tags={"Contact Create"},
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
@@ -131,9 +131,9 @@ class ContactController extends Controller
     /**
      * @OA\Delete(
      *     path="/api/contacts/{id}",
-     *     summary="Delete by ID",
-     *     description="Delete contact",
-     *     tags={"Delete contact"},
+     *     summary="Delete by id",
+     *     description="Contact delete",
+     *     tags={"Contact delete"},
      *
      *     @OA\Parameter(
      *         name="id",
@@ -144,7 +144,7 @@ class ContactController extends Controller
      *     ),
      *
      *     @OA\Response(
-     *         response=200,
+     *         response=404,
      *         description="Contact not found",
      *         @OA\JsonContent(
      *             @OA\Property(property="message", type="string", example="Contact deleted")
@@ -152,8 +152,8 @@ class ContactController extends Controller
      *     ),
      *
      *     @OA\Response(
-     *         response=404,
-     *         description="Contact not found"
+     *         response=204,
+     *         description="No Content"
      *     )
      * )
      */
@@ -172,7 +172,7 @@ class ContactController extends Controller
      *     path="/api/contacts/{id}",
      *     summary="Update by ID",
      *     description="Update contact",
-     *     tags={"Upate find"},
+     *     tags={"Update contact"},
      *
      *     @OA\Parameter(
      *         name="id",
@@ -186,7 +186,6 @@ class ContactController extends Controller
      *         response=200,
      *         description="Update contact",
      *         @OA\JsonContent(
-     *             @OA\Property(property="id", type="string", example="69ab85ce68ca5"),
      *             @OA\Property(property="name", type="string", example="João Silva"),
      *             @OA\Property(property="email", type="string", example="joao@email.com"),
      *             @OA\Property(property="phone", type="string", example="11999999999")
